@@ -6,12 +6,11 @@ services:
   - docker
 
 before_install:
-  - echo "start creating an image with dockerfile"
+  - echo "start Creating an image with dockerfile"
   - docker build -t nylonmusk/docker-react-app -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true nylonmusk/docker-react-app npm run test -- --coverage
-
 
 after_success:
   - echo "Test success"
